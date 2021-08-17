@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 22:24:21 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/16 23:53:09 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/17 19:42:49 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		if (s1[i] != s2[i])
 		{
 			return ((int)(s1[i] - s2[i]));
-			i++;
 		}
+		i++;
 	}
 	return (0);
 }
