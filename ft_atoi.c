@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:59:37 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:00:03 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/17 20:36:21 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	ft_atoi(const char *nptr)
 			negative = 1;
 		nptr++;
 	}
-	else if (*nptr == '+')
-		nptr++;
 	while (ft_isdigit(*nptr))
 	{
 		str = (str * 10) + (*nptr++ - 48);
