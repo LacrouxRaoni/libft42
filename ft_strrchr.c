@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 22:28:36 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:28:51 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/16 22:54:04 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	size_t	len;
 
-	if (c > 127)
+	len = ft_strlen(s) + 1;
+	while (len--)
 	{
-		c %= 256;
-	}
-	i = ft_strlen(s);
-	while (s[i] >= 0)
-	{
-		if (s[i] == c)
+		if (s[len] == (char)c)
 		{
-			return ((char *)s + i);
+			return ((char *)s + len);
 		}
-		i--;
-	}
-	if (*s == c)
-	{
-		return ((char *)s);
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 22:03:31 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:06:07 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/16 23:31:40 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 static char	*convert_itoa(char *str,
 						size_t n_size,
-						unsigned int n,
-						unsigned int n_negative)
+						int n)
 {
-	str[n_size] = '\0';
-	while (n_size--)
-	{
-		str[n_size] = (n / 10) + 48;
-		n /= 10;
-	}
-	if (n_negative)
+	if (n < 0)
 	{
 		str[0] = '-';
+		n *= -1;
+	}
+	str[n_size] = '\0';
+	n_size -= 1;
+	while (n > 9)
+	{
+		str[n_size] = (n % 10) + 48;
+		n /= 10;
+		n_size--;
+	}
+	if (n < 10)
+	{
+		str[n_size] = n + 48;
 	}
 	return (str);
 }
@@ -34,12 +40,11 @@ size_t	ft_nlen(int num)
 {
 	size_t	len;
 
-	len = 1;
+	len = 0;
 	if (num < 0)
 	{
 		len++;
 	}
-	num /= 10;
 	while (num)
 	{
 		num /= 10;
@@ -51,20 +56,22 @@ size_t	ft_nlen(int num)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	n_size;
-	size_t	n_negative;
+	ssize_t	n_digits;
 
-	n_size = ft_nlen(n);
-	n_negative = 0;
-	if (n < 0)
+	if (n == -2147483648)
 	{
-		n_negative = 1;
-		n = -n;
+		return (ft_strdup("-2147483648"));
 	}
-	str = malloc(sizeof(char) * (n_size + 1));
-	if (str == NULL)
+	if (n == 0)
+	{
+		return (ft_strdup("0"));
+	}
+	n_digits = ft_nlen(n);
+	str = (char *)malloc((n_digits + 1) * sizeof(char));
+	if (!str)
 	{
 		return (NULL);
 	}
-	return (convert_itoa(str, n_size, (unsigned int)n, n_negative));
+	convert_itoa (str, n_digits, n);
+	return (str);
 }

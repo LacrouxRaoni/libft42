@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:44:55 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:13:52 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/16 23:38:47 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,24 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-	if (n == INT_MIN)
+	if (n < 10)
 	{
-		ft_putchar_fd('2', fd);
-		ft_putnbr_fd(147483648, fd);
+		ft_putchar_fd (n + '0', fd);
 		return ;
 	}
-	n = -n;
-	if (n > 9)
+	if (n >= 10 && n <= INT_MAX)
 	{
 		ft_putnbr_fd(n / 10, fd);
 	}
-	ft_putchar_fd((n % 10) + 48, fd);
+	ft_putnbr_fd((n % 10), fd);
 }
