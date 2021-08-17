@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 20:24:49 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:32:14 by rruiz-la         ###   ########.fr       */
+/*   Created: 2021/08/11 21:44:55 by rruiz-la          #+#    #+#             */
+/*   Updated: 2021/08/11 22:13:52 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*substr;
-	size_t	size;
-
-	if (s == NULL)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if ((ft_strlen(s) - start) < len)
-		size = (ft_strlen(s) - start) + 1;
-	else
-		size = len + 1;
-	substr = (char *)malloc(size * sizeof(char));
-	if (!substr)
+	if (n < 0)
 	{
-		return (NULL);
+		ft_putchar_fd('-', fd);
 	}
-	ft_strlcpy(substr, &s[start], size);
-	return (substr);
+	if (n == INT_MIN)
+	{
+		ft_putchar_fd('2', fd);
+		ft_putnbr_fd(147483648, fd);
+		return ;
+	}
+	n = -n;
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+	}
+	ft_putchar_fd((n % 10) + 48, fd);
 }

@@ -1,10 +1,10 @@
-NAME	= libft.a
+NAME	:= libft.a
 
-CC	= gcc
+CC	:= gcc
 
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	:= -Wall -Werror -Wextra
 
-SRC	=   ft_isalpha.c \
+SRC	:=   ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -30,16 +30,24 @@ SRC	=   ft_isalpha.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
+		ft_split.c \
 
-OBJ	= $(SRC:%.c=%.o)
+OBJ	:= $(SRC:.c=.o)
 
-all: $(OBJ)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-.c.o:
-	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+%.o:	%.c
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

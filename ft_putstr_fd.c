@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 20:24:49 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:32:14 by rruiz-la         ###   ########.fr       */
+/*   Created: 2021/08/11 21:20:32 by rruiz-la          #+#    #+#             */
+/*   Updated: 2021/08/11 22:14:33 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*substr;
-	size_t	size;
+	int	i;
 
-	if (s == NULL)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if ((ft_strlen(s) - start) < len)
-		size = (ft_strlen(s) - start) + 1;
-	else
-		size = len + 1;
-	substr = (char *)malloc(size * sizeof(char));
-	if (!substr)
+	i = 0;
+	if (*s)
 	{
-		return (NULL);
+		while (s[i])
+		{
+			write (fd, &s[i], 1);
+			i++;
+		}
 	}
-	ft_strlcpy(substr, &s[start], size);
-	return (substr);
 }
