@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 22:06:42 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:07:08 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/16 21:58:38 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		{
 			return (str);
 		}
+		n--;
 	}
 	return (NULL);
 }
