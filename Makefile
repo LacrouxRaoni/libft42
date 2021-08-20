@@ -1,6 +1,6 @@
 NAME	:= libft.a
 
-CC	:= clang
+CC	:= gcc
 
 CFLAGS	:= -Wall -Werror -Wextra
 
@@ -52,7 +52,9 @@ $(NAME): $(OBJ)
 clean:
 	rm -rf $(OBJ)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
