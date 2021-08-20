@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 18:52:41 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/20 18:56:23 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:25:14 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new_list = NULL;
 	while (lst)
 	{
-		new_list = ft_lstnew(tmp->content);
-		if (!new_list)
+		tmp = ft_lstnew(lst->content);
+		if (!tmp)
 		{
 			ft_lstclear(&new_list, del);
 			return (NULL);

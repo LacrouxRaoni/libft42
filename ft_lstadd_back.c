@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 18:52:05 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/20 18:54:28 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:20:04 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	last = ft_lstlast(lst);
+	last = ft_lstlast(*lst);
 	last->next = new;
 }

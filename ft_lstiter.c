@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 18:52:30 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/20 18:52:31 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:21:48 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	{
 		return ;
 	}
-	while (lst->content != NULL)
+	while (lst)
 	{
-		f(lst->content);
+		if (lst->content)
+		{
+			f(lst->content);
+		}
 		lst = lst->next;
 	}
 }
