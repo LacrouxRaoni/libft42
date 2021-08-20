@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:20:32 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/11 22:14:33 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:20:08 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s || fd <= 0)
+	{
+		return ;
+	}
 	if (*s)
 	{
 		while (s[i])
