@@ -39,32 +39,32 @@ SRC	:=	ft_isalpha.c \
 		ft_putnbr_fd.c \
 		ft_split.c \
 
-SRC_BONUS := ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear \
-			ft_lstiter.c \
-			ft_lstmap.c \
+SRC_BONUS	:=	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear \
+				ft_lstiter.c \
+				ft_lstmap.c \
 
-OBJ	:= $(SRC:.c=.o)
-OBJ_BONUS := $(SRC_BONUS:.c=.o)
+OBJ	:=	$(SRC:.c=.o)
+OBJ_BONUS	:=	$(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	ar rcs	$(NAME)	$(OBJ)
 
 %.o:	%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-bonus: $(OBJ_BONUS)
-	ar rcs $(NAME) $(OBJ_BONUS)
+bonus:	$(OBJ_BONUS)
+	ar rcs	$(NAME)	$(OBJ_BONUS)
 
 clean:
-	rm -rf $(OBJ) $(OBJ_BONUS)
+	rm -rf $(OBJ)	$(OBJ_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)
