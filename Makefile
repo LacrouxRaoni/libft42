@@ -1,6 +1,6 @@
 NAME	:= libft.a
 
-CC	:= gcc
+CC	:= clang
 
 CFLAGS	:= -Wall -Werror -Wextra
 
@@ -64,11 +64,12 @@ bonus:	$(OBJ_BONUS)
 	ar rcs	$(NAME)	$(OBJ_BONUS)
 
 clean:
-	rm -rf $(OBJ)	$(OBJ_BONUS)
+	rm -rf $(OBJ)
+	rm -rf $(OBJ_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
