@@ -6,7 +6,7 @@
 /*   By: rruiz-la <rruiz-la@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 21:37:44 by rruiz-la          #+#    #+#             */
-/*   Updated: 2021/08/18 22:56:16 by rruiz-la         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:13:31 by rruiz-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,6 @@
 static size_t	ft_ptr_count(char const *s, char c);
 static void		mal_sub(char **tab, char const *s, char c, size_t nb_ptr);
 static char		**free_tab(char **tab, size_t i);
-
-char	**ft_split(char const *s, char c)
-{
-	char	**tab;
-	size_t	nb_ptr;
-
-	if (!s)
-		return (NULL);
-	nb_ptr = ft_ptr_count(s, c);
-	tab = (char **)malloc(((sizeof(char *)) * (nb_ptr + 1)));
-	if (!tab)
-		return (NULL);
-	mal_sub(tab, s, c, nb_ptr);
-	return (tab);
-}
 
 static size_t	ft_ptr_count(char const *s, char c)
 {
@@ -87,5 +72,21 @@ static char	**free_tab(char **tab, size_t i)
 	}
 	free(tab);
 	tab = NULL;
+	return (tab);
+}
+
+
+char	**ft_split(char const *s, char c)
+{
+	char	**tab;
+	size_t	nb_ptr;
+
+	if (!s)
+		return (NULL);
+	nb_ptr = ft_ptr_count(s, c);
+	tab = (char **)malloc(((sizeof(char *)) * (nb_ptr + 1)));
+	if (!tab)
+		return (NULL);
+	mal_sub(tab, s, c, nb_ptr);
 	return (tab);
 }
